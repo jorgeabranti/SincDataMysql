@@ -8,7 +8,7 @@ class SincDataChecks(object):
         self.__time_start = time_start
         self.__time_end = time_end
 
-    def _process_time(self):
+    def process_time(self):
         start = self.__time_start
         end = self.__time_end
         intime = datetime.datetime.fromtimestamp(time.time()).strftime('%H:%M:%S')

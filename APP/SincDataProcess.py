@@ -52,7 +52,7 @@ class SincDataProcess:
                                            "table_schema=DATABASE() AND table_name='" + table_name +
                                            "' ORDER BY COLUMN_NAME")
         if all(elem in __column_prod for elem in __column_bh):
-            while SincDataChecks(self.__time_start, self.__time_end)._process_time() is True:
+            while SincDataChecks(self.__time_start, self.__time_end).process_time() is True:
                 __var_select = ""
                 __column_insert = "("
                 __values_insert = []

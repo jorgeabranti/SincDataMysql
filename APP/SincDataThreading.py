@@ -49,13 +49,13 @@ class SincDataThreading(object):
         self.__time_start = json_loaded['time_start']
         self.__time_end = json_loaded['time_end']
         log_data = SincDataLogManipulation(None, json_loaded['days_keep_log'])
-        log_data._create_log()
+        log_data.create_log()
         log_data.write_log("*****SINCDATAMYSQL*****")
         self.__log_data = log_data
         try:
             while True:
-                log_data._delete_old_files()
-                if SincDataChecks(self.__time_start, self.__time_end)._process_time() is True:
+                log_data.delete_old_files()
+                if SincDataChecks(self.__time_start, self.__time_end).process_time() is True:
                     self.thread()
                 else:
                     log_data.write_log("Não esta na hora de executar, inicio:" + str(self.__time_start) + "- fim:" +

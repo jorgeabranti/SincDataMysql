@@ -9,7 +9,7 @@ class SincDataLogManipulation(object):
         self.file_name = file_name
         self.days_keep_log = days_keep_log
 
-    def _create_log(self):
+    def create_log(self):
         file = open("APP\LOG\sinc_data_log_" + datetime.datetime.fromtimestamp(time.time()).strftime('%Y%m%d_%H%M%S') +
                     "_.txt", "w+")
         file.close()
@@ -22,7 +22,7 @@ class SincDataLogManipulation(object):
         file.write(datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d_%H:%M:%S') + "__" + text + "\n")
         file.close()
 
-    def _delete_old_files(self):
+    def delete_old_files(self):
         dir_name = os.path.dirname(os.path.realpath(__file__)) + "\LOG"
         for f in os.listdir(dir_name):
             if os.stat(os.path.join(dir_name, f)).st_mtime < time.time() - self.days_keep_log * 86400:
